@@ -37,11 +37,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mostrarProductos(productos: List<Product>) {
-        val texto = StringBuilder()
-        productos.forEach { p ->
-            val stock = if (p.in_stock) "✅ En stock" else "❌ Sin stock"
-            texto.append("📱 ${p.name}\n💰 ${p.price} ${p.currency}\n$stock\n\n")
-        }
-        binding.tvProductos.text = texto.toString()
+        binding.tvProductos.text = ProductFormatter.formatProductList(productos)
     }
 }
